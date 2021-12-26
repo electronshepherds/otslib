@@ -1,0 +1,36 @@
+name: Compliance Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  gitlint:
+    name: Commit Message Compliance
+    runs-on: ubuntu-latest
+    steps:
+      - name: Environment setup
+        run: |
+          sudo apt update
+          sudo apt install -y gitlint
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Check
+        run: |
+          git fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin ${{ github.base_ref }}
+          git fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin ${{ github.head_ref }}
+          git log origin/${{ github.base_ref }}..origin/${{ github.head_ref }} --pretty=%B | gitlint
+  uncrustify:
+    name: Style Compliance
+    runs-on: ubuntu-latest
+    steps:
+      - name: Environment setup
+        run: |
+          sudo apt update
+          sudo apt install -y uncrustify
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Check
+        run: |
+          find . \( -name "*.c" -o -name "*.h" \) -exec uncrustify -c ./.uncrustify --check {} +

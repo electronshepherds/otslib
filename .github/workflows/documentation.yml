@@ -1,0 +1,44 @@
+name: Documentation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Documentation
+    runs-on: ubuntu-latest
+    steps:
+    - name: Environment setup - python
+      uses: actions/setup-python@v2
+    - name: Environment setup
+      run: |
+        sudo apt update
+        sudo apt install -y doxygen graphviz
+        pip3 install Sphinx breathe sphinx-rtd-theme
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Build
+      run: |
+        mkdir build && cd build && cmake -DOTSLIB_BUILD_DOC=ON .. && make doc
+    - name: Commit
+      if: ${{ github.event_name == 'push' && github.ref_name == 'main'}}
+      run: |
+        git config --local user.email "doc[bot]@electronshepherds.com"
+        git config --local user.name "doc[bot]"
+        touch docs/.nojekyll
+        git add -f docs
+        git commit -m "documentation build"
+    - name: Publish
+      if: ${{ github.event_name == 'push' && github.ref_name == 'main'}}
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: refs/heads/gh-pages
+        force: true
