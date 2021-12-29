@@ -103,7 +103,7 @@ static int validate_action_control_notification(struct gatt_notification *notifi
 		LOG(LOG_ERR, "Requested failed with status %u\n",
 		    resp[2]);
 		if (resp[2] < ARRAY_DIM(error_map))
-			return error_map[resp[2]];
+			return -error_map[resp[2]];
 		return -EINVAL;
 	}
 
