@@ -22,19 +22,20 @@
 #define OBJECT_PROP_UUID                "00002ac4-0000-1000-8000-00805f9b34fb"
 #define OBJECT_PROP_SIZE                4
 
-int otslib_get_name(struct otslib_adapter *adapter, char **name)
+int otslib_get_name(void *adapter, char **name)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
 	uuid_t uuid;
 	void *buffer;
 	size_t size;
 	int rc = 0;
 
-	if (adapter == NULL)
+	if (adpt == NULL)
 		return -EINVAL;
 
 	gattlib_string_to_uuid(OBJECT_NAME_UUID, strlen(OBJECT_NAME_UUID), &uuid);
 
-	rc = gattlib_read_char_by_uuid(adapter->connection, &uuid, &buffer, &size);
+	rc = gattlib_read_char_by_uuid(adpt->connection, &uuid, &buffer, &size);
 	if (rc) {
 		rc = map_error(rc);
 		LOG(LOG_ERR, "Could not read object name: %s (%d)\n",
@@ -62,13 +63,14 @@ free_memory:
 	return rc;
 }
 
-int otslib_set_name(struct otslib_adapter *adapter, const char *name)
+int otslib_set_name(void *adapter, const char *name)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
 	uuid_t uuid;
 	int rc = 0;
 	size_t name_length = 0;
 
-	if (adapter == NULL || name == NULL)
+	if (adpt == NULL || name == NULL)
 		return -EINVAL;
 
 	name_length = strlen(name);
@@ -80,7 +82,7 @@ int otslib_set_name(struct otslib_adapter *adapter, const char *name)
 
 	gattlib_string_to_uuid(OBJECT_NAME_UUID, strlen(OBJECT_NAME_UUID), &uuid);
 
-	rc = gattlib_write_char_by_uuid(adapter->connection, &uuid, name, strlen(name));
+	rc = gattlib_write_char_by_uuid(adpt->connection, &uuid, name, strlen(name));
 	if (rc) {
 		rc = map_error(rc);
 		LOG(LOG_ERR, "Could not write object name: %s (%d)\n",
@@ -93,19 +95,20 @@ int otslib_set_name(struct otslib_adapter *adapter, const char *name)
 	return 0;
 }
 
-int otslib_type(struct otslib_adapter *adapter, uuid_t *uuid)
+int otslib_type(void *adapter, uuid_t *uuid)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
 	uuid_t u;
 	void *buffer;
 	size_t size;
 	int rc = 0;
 
-	if (adapter == NULL)
+	if (adpt == NULL)
 		return -EINVAL;
 
 	gattlib_string_to_uuid(OBJECT_TYPE_UUID, strlen(OBJECT_TYPE_UUID), &u);
 
-	rc = gattlib_read_char_by_uuid(adapter->connection, &u, &buffer, &size);
+	rc = gattlib_read_char_by_uuid(adpt->connection, &u, &buffer, &size);
 	if (rc) {
 		rc = map_error(rc);
 		LOG(LOG_ERR, "Could not read object type: %s (%d)\n",
@@ -136,19 +139,20 @@ int otslib_type(struct otslib_adapter *adapter, uuid_t *uuid)
 	return rc;
 }
 
-int otslib_size(struct otslib_adapter *adapter, size_t *current, size_t *allocated)
+int otslib_size(void *adapter, size_t *current, size_t *allocated)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
 	uuid_t uuid;
 	void *buffer;
 	size_t size;
 	int rc = 0;
 
-	if (adapter == NULL)
+	if (adpt == NULL)
 		return -EINVAL;
 
 	gattlib_string_to_uuid(OBJECT_SIZE_UUID, strlen(OBJECT_SIZE_UUID), &uuid);
 
-	rc = gattlib_read_char_by_uuid(adapter->connection, &uuid, &buffer, &size);
+	rc = gattlib_read_char_by_uuid(adpt->connection, &uuid, &buffer, &size);
 	if (rc) {
 		rc = map_error(rc);
 		LOG(LOG_ERR, "Could not read object size: %s (%d)\n",
@@ -179,19 +183,20 @@ free_memory:
 	return rc;
 }
 
-int otslib_id(struct otslib_adapter *adapter, unsigned long long *id)
+int otslib_id(void *adapter, unsigned long long *id)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
 	uuid_t uuid;
 	void *buffer;
 	size_t size;
 	int rc = 0;
 
-	if (adapter == NULL)
+	if (adpt == NULL)
 		return -EINVAL;
 
 	gattlib_string_to_uuid(OBJECT_ID_UUID, strlen(OBJECT_ID_UUID), &uuid);
 
-	rc = gattlib_read_char_by_uuid(adapter->connection, &uuid, &buffer, &size);
+	rc = gattlib_read_char_by_uuid(adpt->connection, &uuid, &buffer, &size);
 	if (rc) {
 		rc = map_error(rc);
 		LOG(LOG_ERR, "Could not read object ID: %s (%d)\n",
@@ -220,19 +225,20 @@ free_memory:
 	return rc;
 }
 
-int otslib_properties(struct otslib_adapter *adapter, unsigned long *properties)
+int otslib_properties(void *adapter, unsigned long *properties)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
 	uuid_t uuid;
 	void *buffer;
 	size_t size;
 	int rc = 0;
 
-	if (adapter == NULL)
+	if (adpt == NULL)
 		return -EINVAL;
 
 	gattlib_string_to_uuid(OBJECT_PROP_UUID, strlen(OBJECT_PROP_UUID), &uuid);
 
-	rc = gattlib_read_char_by_uuid(adapter->connection, &uuid, &buffer, &size);
+	rc = gattlib_read_char_by_uuid(adpt->connection, &uuid, &buffer, &size);
 	if (rc) {
 		rc = map_error(rc);
 		LOG(LOG_ERR, "Could not read object properties: %s (%d)\n",

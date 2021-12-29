@@ -129,42 +129,50 @@ static int write_list_control(struct otslib_adapter *adapter, void *buffer, size
 	return rc;
 }
 
-int otslib_first(struct otslib_adapter *adapter)
+int otslib_first(void *adapter)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
+
 	OLCP_FIRST_DECLARE(buffer);
 
-	if (adapter == NULL)
+	if (adpt == NULL)
 		return -EINVAL;
 
-	return write_list_control(adapter, buffer, sizeof(buffer));
+	return write_list_control(adpt, buffer, sizeof(buffer));
 }
 
-int otslib_last(struct otslib_adapter *adapter)
+int otslib_last(void *adapter)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
+
 	OLCP_LAST_DECLARE(buffer);
 
-	if (adapter == NULL)
+	if (adpt == NULL)
 		return -EINVAL;
 
-	return write_list_control(adapter, buffer, sizeof(buffer));
+	return write_list_control(adpt, buffer, sizeof(buffer));
 }
 
-int otslib_previous(struct otslib_adapter *adapter)
+int otslib_previous(void *adapter)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
+
 	OLCP_PREV_DECLARE(buffer);
 
-	if (adapter == NULL)
+	if (adpt == NULL)
 		return -EINVAL;
 
-	return write_list_control(adapter, buffer, sizeof(buffer));
+	return write_list_control(adpt, buffer, sizeof(buffer));
 }
 
-int otslib_next(struct otslib_adapter *adapter)
+int otslib_next(void *adapter)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
+
 	OLCP_NEXT_DECLARE(buffer);
 
-	if (adapter == NULL)
+	if (adpt == NULL)
 		return -EINVAL;
 
-	return write_list_control(adapter, buffer, sizeof(buffer));
+	return write_list_control(adpt, buffer, sizeof(buffer));
 }

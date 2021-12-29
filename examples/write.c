@@ -17,7 +17,7 @@ static const char *name;
 
 
 static void *gattlib_adapter;
-static struct otslib_adapter *otslib_adapter;
+static void *otslib_adapter;
 static gatt_connection_t *connection;
 
 static void discovered_device(void *adapter, const char *addr, const char *name, void *user_data)
