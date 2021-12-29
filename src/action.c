@@ -110,60 +110,66 @@ static int validate_action_control_notification(struct gatt_notification *notifi
 	return 0;
 }
 
-static int write_action_control(struct otslib_adapter *adapter, void *buffer, size_t size)
+static int write_action_control(void *adapter, void *buffer, size_t size)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
 	uuid_t uuid;
 	int rc = 0;
 
-	rc = start_notification(adapter, &adapter->action, OACP_UUID16);
+	rc = start_notification(adpt, &adpt->action, OACP_UUID16);
 	if (rc)
 		return rc;
 
 	gattlib_string_to_uuid(OACP_UUID16, strlen(OACP_UUID16), &uuid);
-	rc = gattlib_write_char_by_uuid(adapter->connection, &uuid, buffer, size);
+	rc = gattlib_write_char_by_uuid(adpt->connection, &uuid, buffer, size);
 	if (rc) {
 		LOG(LOG_ERR, "Could not write OACP: %d\n", rc);
 		return -map_error(rc);
 	}
 
-	rc = wait_for_notification(&adapter->action, OACP_NOTIFICATION_TIMEOUT_S);
+	rc = wait_for_notification(&adpt->action, OACP_NOTIFICATION_TIMEOUT_S);
 	if (rc)
 		return rc;
 
 	LOG(LOG_DEBUG, "Wrote %zu bytes to OACP.\n", size);
 
-	rc = validate_action_control_notification(&adapter->action, buffer, size);
+	rc = validate_action_control_notification(&adpt->action, buffer, size);
 
-	free(adapter->action.payload);
+	free(adpt->action.payload);
 
 	return rc;
 }
 
-int otslib_create(struct otslib_adapter *adapter, size_t size, uuid_t *uuid)
+int otslib_create(void *adapter, size_t size, uuid_t *uuid)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
+
 	OACP_CREATE16_DECLARE(buffer, size, uuid);
 
-	if (adapter == NULL)
+	if (adpt == NULL)
 		return -EINVAL;
 
 	if (uuid->type != SDP_UUID16)
 		return -ENOTSUP;
 
-	return write_action_control(adapter, buffer, sizeof(buffer));
+	return write_action_control(adpt, buffer, sizeof(buffer));
 }
 
-int otslib_delete(struct otslib_adapter *adapter)
+int otslib_delete(void *adapter)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
+
 	OACP_DELETE_DECLARE(buffer);
 
-	if (adapter == NULL)
+	if (adpt == NULL)
 		return -EINVAL;
 
-	return write_action_control(adapter, buffer, sizeof(buffer));
+	return write_action_control(adpt, buffer, sizeof(buffer));
 }
 
-int otslib_read(struct otslib_adapter *adapter, off_t offset, size_t length, void **buffer)
+int otslib_read(void *adapter, off_t offset, size_t length, void **buffer)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
 	int rc = 0;
 	int i = 0;
 	ssize_t n = 0;
@@ -171,14 +177,14 @@ int otslib_read(struct otslib_adapter *adapter, off_t offset, size_t length, voi
 
 	OACP_READ_DECLARE(cmd, offset, length);
 
-	if (adapter == NULL || buffer == NULL)
+	if (adpt == NULL || buffer == NULL)
 		return -EINVAL;
 
-	rc = open_l2cap_socket(adapter);
+	rc = open_l2cap_socket(adpt);
 	if (rc)
 		return rc;
 
-	rc = write_action_control(adapter, cmd, sizeof(cmd));
+	rc = write_action_control(adpt, cmd, sizeof(cmd));
 	if (rc)
 		return rc;
 
@@ -190,11 +196,11 @@ int otslib_read(struct otslib_adapter *adapter, off_t offset, size_t length, voi
 	while (length > 0) {
 		LOG(LOG_DEBUG, "Attempt to read %zu bytes from socket\n", length);
 
-		n = read(adapter->socket.fd, b + i, length);
+		n = read(adpt->socket.fd, b + i, length);
 		if (n == 0) {
 			LOG(LOG_ERR, "L2CAP socket was closed: %s (%d)\n",
 			    strerror(errno), errno);
-			close_l2cap_socket(adapter);
+			close_l2cap_socket(adpt);
 			rc = -EIO;
 			goto free_resources;
 		} else if (n < 0) {
@@ -220,8 +226,9 @@ free_resources:
 	return rc;
 }
 
-int otslib_write(struct otslib_adapter *adapter, off_t offset, size_t length, unsigned char mode, void *buffer)
+int otslib_write(void *adapter, off_t offset, size_t length, unsigned char mode, void *buffer)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
 	int rc = 0;
 	int i = 0;
 	ssize_t n = 0;
@@ -229,14 +236,14 @@ int otslib_write(struct otslib_adapter *adapter, off_t offset, size_t length, un
 
 	OACP_WRITE_DECLARE(cmd, offset, length, mode);
 
-	if (adapter == NULL || buffer == NULL)
+	if (adpt == NULL || buffer == NULL)
 		return -EINVAL;
 
-	rc = open_l2cap_socket(adapter);
+	rc = open_l2cap_socket(adpt);
 	if (rc)
 		return rc;
 
-	rc = write_action_control(adapter, cmd, sizeof(cmd));
+	rc = write_action_control(adpt, cmd, sizeof(cmd));
 	if (rc)
 		return rc;
 
@@ -244,13 +251,13 @@ int otslib_write(struct otslib_adapter *adapter, off_t offset, size_t length, un
 	while (length > 0) {
 		LOG(LOG_DEBUG, "%zu bytes left to write to socket\n", length);
 
-		n = write(adapter->socket.fd,
+		n = write(adpt->socket.fd,
 			  b + i,
-			  length > adapter->socket.mtu ? adapter->socket.mtu : length);
+			  length > adpt->socket.mtu ? adpt->socket.mtu : length);
 		if (n < 0) {
 			LOG(LOG_ERR, "Could not write to L2CAP socket: %s (%d)\n",
 			    strerror(errno), errno);
-			close_l2cap_socket(adapter);
+			close_l2cap_socket(adpt);
 			return -errno;
 		}
 

@@ -46,61 +46,65 @@ exit:
 	return rc;
 }
 
-int otslib_open(gatt_connection_t *connection, const char *address, struct otslib_adapter **adapter)
+int otslib_open(gatt_connection_t *connection, const char *address, void **adapter)
 {
-	if (connection == NULL || address == NULL || adapter == NULL)
+	struct otslib_adapter **adpt = (struct otslib_adapter **)adapter;
+
+	if (connection == NULL || address == NULL || adpt == NULL)
 		return -EINVAL;
 
-	*adapter = calloc(1, sizeof(struct otslib_adapter));
-	if (*adapter == NULL) {
+	*adpt = calloc(1, sizeof(struct otslib_adapter));
+	if (*adpt == NULL) {
 		LOG(LOG_ERR, "Could not allocate memory for adapter: %s (%d).\n",
 		    strerror(ENOMEM), ENOMEM);
 		return -ENOMEM;
 	}
 
-	(*adapter)->connection = connection;
+	(*adpt)->connection = connection;
 
-	if (str2ba(address, &(*adapter)->socket.bdaddr)) {
+	if (str2ba(address, &(*adpt)->socket.bdaddr)) {
 		LOG(LOG_ERR, "Invalid address: %s.\n", address);
 		return -EINVAL;
 	}
 
-	gattlib_register_notification(connection, notification_handler, *adapter);
+	gattlib_register_notification(connection, notification_handler, *adpt);
 
 	return 0;
 }
 
-int otslib_close(struct otslib_adapter *adapter)
+int otslib_close(void *adapter)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
 	int rc = 0;
 
-	if (adapter == NULL)
+	if (adpt == NULL)
 		return -EINVAL;
 
-	rc = stop_notification(adapter, &adapter->list);
+	rc = stop_notification(adpt, &adpt->list);
 	if (rc)
 		return rc;
 
-	rc = stop_notification(adapter, &adapter->action);
+	rc = stop_notification(adpt, &adpt->action);
 	if (rc)
 		return rc;
 
-	close_l2cap_socket(adapter);
+	close_l2cap_socket(adpt);
 
-	free(adapter);
+	free(adpt);
 
 	return 0;
 }
 
-int otslib_action_features(struct otslib_adapter *adapter, unsigned long *features)
+int otslib_action_features(void *adapter, unsigned long *features)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
 	unsigned long value[2];
 	int rc = 0;
 
-	if (adapter == NULL || features == NULL)
+	if (adpt == NULL || features == NULL)
 		return -EINVAL;
 
-	rc = read_features(adapter->connection, value);
+	rc = read_features(adpt->connection, value);
 	if (rc)
 		return rc;
 
@@ -109,15 +113,16 @@ int otslib_action_features(struct otslib_adapter *adapter, unsigned long *featur
 	return 0;
 }
 
-int otslib_list_features(struct otslib_adapter *adapter, unsigned long *features)
+int otslib_list_features(void *adapter, unsigned long *features)
 {
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
 	unsigned long value[2];
 	int rc = 0;
 
-	if (adapter == NULL || features == NULL)
+	if (adpt == NULL || features == NULL)
 		return -EINVAL;
 
-	rc = read_features(adapter->connection, value);
+	rc = read_features(adpt->connection, value);
 	if (rc)
 		return rc;
 
