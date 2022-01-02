@@ -8,10 +8,16 @@ if (OTSLIB_ADDRESS_SANITIZER)
 	set(ADDRESS_SANIITZER -fsanitize=address)
 endif()
 
-add_subdirectory(src)
-
 # Examples
 set(OTSLIB_EXAMPLES OFF CACHE BOOL "Enable build and install of examples.")
 if (OTSLIB_EXAMPLES)
 	add_subdirectory(examples)
 endif()
+
+# Documentation
+set(OTSLIB_BUILD_DOC OFF CACHE BOOL "Include documentation build.")
+if (OTSLIB_BUILD_DOC)
+	add_subdirectory(doc)
+endif()
+
+add_subdirectory(src)
