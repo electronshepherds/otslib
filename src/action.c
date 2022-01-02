@@ -140,17 +140,17 @@ static int write_action_control(void *adapter, void *buffer, size_t size)
 	return rc;
 }
 
-int otslib_create(void *adapter, size_t size, uuid_t *uuid)
+int otslib_create(void *adapter, size_t size, uuid_t *type)
 {
 	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
 
-	OACP_CREATE16_DECLARE(buffer, size, uuid);
-
-	if (adpt == NULL)
+	if (adpt == NULL || type == NULL)
 		return -EINVAL;
 
-	if (uuid->type != SDP_UUID16)
+	if (type->type != SDP_UUID16)
 		return -ENOTSUP;
+
+	OACP_CREATE16_DECLARE(buffer, size, type);
 
 	return write_action_control(adpt, buffer, sizeof(buffer));
 }
@@ -159,10 +159,10 @@ int otslib_delete(void *adapter)
 {
 	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
 
-	OACP_DELETE_DECLARE(buffer);
-
 	if (adpt == NULL)
 		return -EINVAL;
+
+	OACP_DELETE_DECLARE(buffer);
 
 	return write_action_control(adpt, buffer, sizeof(buffer));
 }
@@ -175,10 +175,10 @@ int otslib_read(void *adapter, off_t offset, size_t length, void **buffer)
 	ssize_t n = 0;
 	uint8_t *b;
 
-	OACP_READ_DECLARE(cmd, offset, length);
-
 	if (adpt == NULL || buffer == NULL)
 		return -EINVAL;
+
+	OACP_READ_DECLARE(cmd, offset, length);
 
 	rc = open_l2cap_socket(adpt);
 	if (rc)
@@ -234,10 +234,10 @@ int otslib_write(void *adapter, off_t offset, size_t length, unsigned char mode,
 	ssize_t n = 0;
 	uint8_t *b;
 
-	OACP_WRITE_DECLARE(cmd, offset, length, mode);
-
 	if (adpt == NULL || buffer == NULL)
 		return -EINVAL;
+
+	OACP_WRITE_DECLARE(cmd, offset, length, mode);
 
 	rc = open_l2cap_socket(adpt);
 	if (rc)

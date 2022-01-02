@@ -5,8 +5,8 @@ project(otslib)
 set(TARGET_NAME otslib)
 
 include(FindPkgConfig)
-pkg_check_modules(GATTLIB REQUIRED gattlib)
-pkg_check_modules(BLUETOOTH REQUIRED bluez)
+pkg_check_modules(GATTLIB gattlib)
+pkg_check_modules(BLUETOOTH bluez)
 
 # Logging
 set(OTSLIB_LOG_BACKEND syslog CACHE STRING "Logging backend: syslog, stdout (default: syslog)")
