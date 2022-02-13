@@ -4,6 +4,7 @@ function(declare_example NAME)
 	set(TARGET_NAME ${NAME})
 	add_executable(
 		${TARGET_NAME}
+		common.c
 		"${ARGN}"
 	)
 	target_link_libraries(
