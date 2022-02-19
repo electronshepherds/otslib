@@ -35,8 +35,8 @@ enum otslib_oacp_opcode {
 #define OACP_CREATE16_DECLARE(name, size, uuid) \
 	uint8_t name[OACP_CREATE16_SIZE] = \
 	{ OTSLIB_OACP_OPCODE_CREATE }; \
-	bt_put_le32(size, &name[1]); \
-	bt_put_le16((uuid)->value.uuid16, &name[5]);
+	bt_put_le32(size, &name[sizeof(uint8_t)]); \
+	bt_put_le16((uuid)->value.uuid16, &name[sizeof(uint8_t) + sizeof(uint32_t)]);
 
 #define OACP_DELETE_SIZE 1
 #define OACP_DELETE_DECLARE(name) \
@@ -47,15 +47,15 @@ enum otslib_oacp_opcode {
 #define OACP_READ_DECLARE(name, offset, length) \
 	uint8_t name[OACP_READ_SIZE] = \
 	{ OTSLIB_OACP_OPCODE_READ }; \
-	bt_put_le32(offset, &name[1]); \
-	bt_put_le32(length, &name[5]);
+	bt_put_le32(offset, &name[sizeof(uint8_t)]); \
+	bt_put_le32(length, &name[sizeof(uint8_t) + sizeof(uint32_t)]);
 
 #define OACP_WRITE_SIZE 10
 #define OACP_WRITE_DECLARE(name, offset, length, mode) \
 	uint8_t name[OACP_WRITE_SIZE] = \
 	{ OTSLIB_OACP_OPCODE_WRITE }; \
-	bt_put_le32(offset, &name[1]); \
-	bt_put_le32(length, &name[5]); \
+	bt_put_le32(offset, &name[sizeof(uint8_t)]); \
+	bt_put_le32(length, &name[sizeof(uint8_t) + sizeof(uint32_t)]); \
 	name[9] = mode;
 
 static int error_map[] = {

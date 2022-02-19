@@ -8,6 +8,8 @@
  * @{
  */
 
+#include <stdint.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -16,6 +18,7 @@ int otslib_first(void *adapter);
 int otslib_last(void *adapter);
 int otslib_previous(void *adapter);
 int otslib_next(void *adapter);
+int otslib_goto(void *adapter, uint64_t id);
 
 #ifdef __cplusplus
 }

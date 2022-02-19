@@ -50,6 +50,13 @@ enum otslib_olcp_opcode {
 	uint8_t name[OLCP_NEXT_SIZE] = \
 	{ OTSLIB_OLCP_OPCODE_NEXT }
 
+#define OLCP_GOTO_SIZE 7
+#define OLCP_GOTO_DECLARE(name, id) \
+	uint8_t name[OLCP_GOTO_SIZE] = \
+	{ OTSLIB_OLCP_OPCODE_GOTO }; \
+	bt_put_le32(id & 0xFFFFFFFF, &name[sizeof(uint8_t)]); \
+	bt_put_le16((id >> 32) & 0xFFFF, &name[sizeof(uint8_t) + sizeof(uint32_t)]);
+
 static int error_map[] = {
 	EINVAL,
 	0,
@@ -173,6 +180,18 @@ int otslib_next(void *adapter)
 
 	if (adpt == NULL)
 		return -EINVAL;
+
+	return write_list_control(adpt, buffer, sizeof(buffer));
+}
+
+int otslib_goto(void *adapter, uint64_t id)
+{
+	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
+
+	if (id > 0xFFFFFFFFFFFF)
+		return -EINVAL;
+
+	OLCP_GOTO_DECLARE(buffer, id);
 
 	return write_list_control(adpt, buffer, sizeof(buffer));
 }
