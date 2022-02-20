@@ -29,6 +29,7 @@ add_library(
 	${TARGET_NAME} SHARED
 	${LOG_BACKEND}
 	action.c
+	directory.c
 	internal.c
 	list.c
 	metadata.c

@@ -58,3 +58,8 @@ declare_example(
 	write.c
 	hexdump.c
 )
+
+declare_example(
+	directory
+	directory.c
+)
