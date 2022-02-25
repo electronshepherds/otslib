@@ -10,6 +10,7 @@ on:
 
 jobs:
   build:
+    name: Documentation
     runs-on: ubuntu-latest
     steps:
     - name: Environment setup - python
@@ -18,7 +19,7 @@ jobs:
       run: |
         sudo apt update
         sudo apt install -y doxygen graphviz
-        pip3 install Sphinx breathe
+        pip3 install Sphinx breathe sphinx-rtd-theme
     - name: Checkout
       uses: actions/checkout@v2
       with:

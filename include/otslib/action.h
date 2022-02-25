@@ -71,7 +71,7 @@ int otslib_delete(void *adapter);
  *
  * Read @p length at @p offset from the currently selected object.
  *
- * @param adapter otslib_adapter
+ * @param adapter otslib adapter
  * @param offset byte offset to read from
  * @param length number of bytes to read
  * @param[out] buffer pointer to the buffer containing the read data.
