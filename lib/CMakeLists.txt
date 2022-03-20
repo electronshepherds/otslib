@@ -35,6 +35,7 @@ add_library(
 	metadata.c
 	otslib.c
 )
+add_subdirectory(include)
 
 target_compile_definitions(
 	${TARGET_NAME} PRIVATE
@@ -45,10 +46,13 @@ target_compile_definitions(
 
 target_include_directories(
 	${TARGET_NAME} PRIVATE
-	${CMAKE_CURRENT_LIST_DIR}/../include
 	${CMAKE_CURRENT_LIST_DIR}
 	${GATTLIB_INCLUDE_DIRS}
 	${BLUETOOTH_INCLUDE_DIRS}
+)
+target_include_directories(
+	${TARGET_NAME} PUBLIC
+	${CMAKE_CURRENT_LIST_DIR}/include
 )
 
 target_link_libraries(
@@ -80,10 +84,5 @@ include(GNUInstallDirs)
 install(
 	TARGETS ${TARGET_NAME}
 	LIBRARY
-	DESTINATION ${CMAKE_INSTALL_LIBDIR}
-)
-
-install(
-	DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/../include/
-	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+	PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${TARGET_NAME}
 )

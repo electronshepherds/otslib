@@ -20,4 +20,4 @@ if (OTSLIB_BUILD_DOC)
 	add_subdirectory(doc)
 endif()
 
-add_subdirectory(src)
+add_subdirectory(lib)
