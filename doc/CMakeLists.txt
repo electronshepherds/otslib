@@ -6,7 +6,7 @@ set(DOXYGEN_GENERATE_XML YES)
 set(DOXYGEN_GENERATE_HTML NO)
 doxygen_add_docs(
 	doxygen
-	../include
+	../lib/include
 )
 
 find_program(SPHINX_EXECUTABLE NAMES sphinx-build
@@ -21,7 +21,7 @@ mark_as_advanced(SPHINX_EXECUTABLE)
 set(SPHINX_HTML_DIR "${PROJECT_SOURCE_DIR}/docs")
 
 set(DOXYGEN_XML_OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/xml")
-set(SPHINX_HTML_STATIC_PATH "${PROJECT_SOURCE_DIR}/docs")
+set(SPHINX_HTML_STATIC_PATH "${PROJECT_SOURCE_DIR}/build/doc")
 
 configure_file(
 	"${CMAKE_CURRENT_SOURCE_DIR}/conf.py.in"
@@ -31,6 +31,7 @@ configure_file(
 add_custom_target(
 	doc
 	${SPHINX_EXECUTABLE}
+	-W
 	-q -b html
 	-c ${CMAKE_CURRENT_BINARY_DIR}
 	"${CMAKE_CURRENT_SOURCE_DIR}"
