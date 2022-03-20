@@ -188,6 +188,9 @@ int otslib_goto(void *adapter, uint64_t id)
 {
 	struct otslib_adapter *adpt = (struct otslib_adapter *)adapter;
 
+	if (adpt == NULL)
+		return -EINVAL;
+
 	if (id > 0xFFFFFFFFFFFF)
 		return -EINVAL;
 
