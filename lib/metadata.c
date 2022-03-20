@@ -196,7 +196,7 @@ int otslib_id(void *adapter, unsigned long long *id)
 	size_t size;
 	int rc = 0;
 
-	if (adpt == NULL)
+	if (adpt == NULL || id == NULL)
 		return -EINVAL;
 
 	gattlib_string_to_uuid(OBJECT_ID_UUID, strlen(OBJECT_ID_UUID), &uuid);
@@ -216,13 +216,11 @@ int otslib_id(void *adapter, unsigned long long *id)
 		goto free_memory;
 	}
 
-	if (id) {
-		/* ID is a 48-bit field, using a 64-bit temporary buffer makes life easier */
-		uint8_t temp[sizeof(uint64_t)] = { 0 };
-		memcpy(temp, buffer, OBJECT_ID_SIZE);
-		*id = bt_get_le64(temp);
-		LOG(LOG_DEBUG, "Object ID: 0x%012llx\n", *id);
-	}
+	/* ID is a 48-bit field, using a 64-bit temporary buffer makes life easier */
+	uint8_t temp[sizeof(uint64_t)] = { 0 };
+	memcpy(temp, buffer, OBJECT_ID_SIZE);
+	*id = bt_get_le64(temp);
+	LOG(LOG_DEBUG, "Object ID: 0x%012llx\n", *id);
 
 free_memory:
 	free(buffer);
