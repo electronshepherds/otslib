@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; otslib  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to otslib’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> otslib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#actions">Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metadata">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#directory-listing">Directory Listing</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">otslib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<section id="general">
+<h2>General<a class="headerlink" href="#general" title="Permalink to this headline"></a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__otslib"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">otslib</span></span></dt>
+<dd><p>Object Transfer Service. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_ACTION_FEATURE_CREATE">
+<span class="target" id="group__otslib_1ga694eeb65eeae0bc585ae98788e6e8670"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_ACTION_FEATURE_CREATE</span></span></span><a class="headerlink" href="#c.OTSLIB_ACTION_FEATURE_CREATE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Action Feature Create. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_ACTION_FEATURE_DELETE">
+<span class="target" id="group__otslib_1ga92dca9aedc70c1e4469fe29a2b5d99c2"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_ACTION_FEATURE_DELETE</span></span></span><a class="headerlink" href="#c.OTSLIB_ACTION_FEATURE_DELETE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Action Feature Delete. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_ACTION_FEATURE_CHECKSUM">
+<span class="target" id="group__otslib_1ga553cf853614812577bd0d2946694522b"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_ACTION_FEATURE_CHECKSUM</span></span></span><a class="headerlink" href="#c.OTSLIB_ACTION_FEATURE_CHECKSUM" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Action Feature Calculate Checksum. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_ACTION_FEATURE_EXECUTE">
+<span class="target" id="group__otslib_1ga686eab5d17668624bc833cf1cbf69aef"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_ACTION_FEATURE_EXECUTE</span></span></span><a class="headerlink" href="#c.OTSLIB_ACTION_FEATURE_EXECUTE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Action Feature Execute. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_ACTION_FEATURE_READ">
+<span class="target" id="group__otslib_1ga6d8763c92bb5f527e4e3d8ef837883a1"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_ACTION_FEATURE_READ</span></span></span><a class="headerlink" href="#c.OTSLIB_ACTION_FEATURE_READ" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Action Feature Read. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_ACTION_FEATURE_WRITE">
+<span class="target" id="group__otslib_1ga35851a94054be11a10f2d106ef2b7aac"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_ACTION_FEATURE_WRITE</span></span></span><a class="headerlink" href="#c.OTSLIB_ACTION_FEATURE_WRITE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Action Feature Write. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_ACTION_FEATURE_APPEND">
+<span class="target" id="group__otslib_1gae6efee6d83cc554b09763ae07b9dbeee"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_ACTION_FEATURE_APPEND</span></span></span><a class="headerlink" href="#c.OTSLIB_ACTION_FEATURE_APPEND" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Action Feature Appending Additional Data. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_ACTION_FEATURE_TRUNCATE">
+<span class="target" id="group__otslib_1gac3a1bf37f3ec91b45b4825ecfc1324b0"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_ACTION_FEATURE_TRUNCATE</span></span></span><a class="headerlink" href="#c.OTSLIB_ACTION_FEATURE_TRUNCATE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Action Feature Truncate. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_ACTION_FEATURE_PATCH">
+<span class="target" id="group__otslib_1gabeb91c80fb9e6810d132125de568a76e"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_ACTION_FEATURE_PATCH</span></span></span><a class="headerlink" href="#c.OTSLIB_ACTION_FEATURE_PATCH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Action Feature Patch. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_ACTION_FEATURE_ABORT">
+<span class="target" id="group__otslib_1gaaf2ed87cb64fe6162470d92317f78583"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_ACTION_FEATURE_ABORT</span></span></span><a class="headerlink" href="#c.OTSLIB_ACTION_FEATURE_ABORT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Action Feature Abort. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_LIST_FEATURE_GOTO">
+<span class="target" id="group__otslib_1ga8f1b43875fb3f3bddfa4059bbab6a523"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_LIST_FEATURE_GOTO</span></span></span><a class="headerlink" href="#c.OTSLIB_LIST_FEATURE_GOTO" title="Permalink to this definition"></a><br /></dt>
+<dd><p>List Feature Go To. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_LIST_FEATURE_ORDER">
+<span class="target" id="group__otslib_1ga427829a5ec41b229c41cacd0e0decb84"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_LIST_FEATURE_ORDER</span></span></span><a class="headerlink" href="#c.OTSLIB_LIST_FEATURE_ORDER" title="Permalink to this definition"></a><br /></dt>
+<dd><p>List Feature Order. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_LIST_FEATURE_NUMBER_OBJECTS">
+<span class="target" id="group__otslib_1ga306f79b6ad4af35e5f059a7c4487201c"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_LIST_FEATURE_NUMBER_OBJECTS</span></span></span><a class="headerlink" href="#c.OTSLIB_LIST_FEATURE_NUMBER_OBJECTS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>List Feature Request Number of Objects. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_LIST_FEATURE_CLEAR_MARKING">
+<span class="target" id="group__otslib_1ga747e9529d6672ff10346bce0cae2dc56"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_LIST_FEATURE_CLEAR_MARKING</span></span></span><a class="headerlink" href="#c.OTSLIB_LIST_FEATURE_CLEAR_MARKING" title="Permalink to this definition"></a><br /></dt>
+<dd><p>List Feature Clear Marking. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411otslib_openP17gatt_connection_tPKcPPv">
+<span id="_CPPv311otslib_openP17gatt_connection_tPKcPPv"></span><span id="_CPPv211otslib_openP17gatt_connection_tPKcPPv"></span><span id="otslib_open__gatt_connection_tP.cCP.voidPP"></span><span class="target" id="group__otslib_1ga52f4dd6d986377d98ddb3e1ddfd04751"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_open</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">gatt_connection_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">connection</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dst</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411otslib_openP17gatt_connection_tPKcPPv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Open otslib Adapter. </p>
+<p>Open an otslib adapter that can bue used for further interactions with otslib. It is responsibility of the user to close the adapter using <a class="reference internal" href="#group__otslib_1ga5401fc5619665a09a0b30c0ed3ebb650"><span class="std std-ref">otslib_close</span></a> to prevent a resource leak.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – connection handle provided by <a class="reference external" href="https://github.com/labapart/gattlib">gattlib</a> </p></li>
+<li><p><strong>dst</strong> – bluetooth address of the device to open an adapter for </p></li>
+<li><p><strong>adapter</strong> – <strong>[out]</strong> opened adapter </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>-EINVAL</strong> – if any of the input parameters are NULL if the provided device address by <code class="docutils literal notranslate"><span class="pre">dst</span></code> is invalid </p></li>
+<li><p><strong>-ENOMEM</strong> – if could not allocate memory for the adapter </p></li>
+<li><p><strong>0</strong> – when successful </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412otslib_closePv">
+<span id="_CPPv312otslib_closePv"></span><span id="_CPPv212otslib_closePv"></span><span id="otslib_close__voidP"></span><span class="target" id="group__otslib_1ga5401fc5619665a09a0b30c0ed3ebb650"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_close</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412otslib_closePv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Close otslib Adapter. </p>
+<p>Close an otslib adapter previously opened by <a class="reference internal" href="#group__otslib_1ga52f4dd6d986377d98ddb3e1ddfd04751"><span class="std std-ref">otslib_open</span></a>. All allocated resources for this adapter are freed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>adapter</strong> – an otslib adapter </p>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>-EINVAL</strong> – if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> is NULL </p></li>
+<li><p><strong>0</strong> – when successful </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>other negative values for other errors </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv422otslib_action_featuresPvPm">
+<span id="_CPPv322otslib_action_featuresPvPm"></span><span id="_CPPv222otslib_action_featuresPvPm"></span><span id="otslib_action_features__voidP.unsigned-lP"></span><span class="target" id="group__otslib_1gac6273b41f8a96568405abe9029a556dc"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_action_features</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span>, <span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">features</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422otslib_action_featuresPvPm" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Read Action Features. </p>
+<p>Read’s the action features of the OTS service represented by <code class="docutils literal notranslate"><span class="pre">adapter</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adapter</strong> – otslib adapter </p></li>
+<li><p><strong>features</strong> – <strong>[out]</strong> <code class="docutils literal notranslate"><span class="pre">OTSLIB_ACTION_FEATURE_</span></code> bitmask of action features </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>-EINVAL</strong> – if the input parameters are NULL </p></li>
+<li><p><strong>0</strong> – when successful </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>other negative values for other errors </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420otslib_list_featuresPvPm">
+<span id="_CPPv320otslib_list_featuresPvPm"></span><span id="_CPPv220otslib_list_featuresPvPm"></span><span id="otslib_list_features__voidP.unsigned-lP"></span><span class="target" id="group__otslib_1ga1fe49833179b25d2f06b6194afb011b3"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_list_features</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span>, <span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">features</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420otslib_list_featuresPvPm" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Read List Features. </p>
+<p>Read’s the list features of the OTS service represented by <code class="docutils literal notranslate"><span class="pre">adapter</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adapter</strong> – otslib adapter </p></li>
+<li><p><strong>features</strong> – <strong>[out]</strong> <code class="docutils literal notranslate"><span class="pre">OTSLIB_LIST_FEATURE_</span></code> bitmask of list features </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>-EINVAL</strong> – if the input parameters are NULL </p></li>
+<li><p><strong>0</strong> – when successful </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>other negative values for other errors </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv422otslib_object_metadata">
+<span id="_CPPv322otslib_object_metadata"></span><span id="_CPPv222otslib_object_metadata"></span><span id="otslib_object_metadata"></span><span class="target" id="structotslib__object__metadata"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_object_metadata</span></span></span><a class="headerlink" href="#_CPPv422otslib_object_metadata" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;otslib.h&gt;</em></div>
+<p>Object Metadata. </p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="actions">
+<h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline"></a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__otslib__action"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">otslib_action</span></span></dt>
+<dd><p>Action. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_WRITE_MODE_TRUNCATE">
+<span class="target" id="group__otslib__action_1ga2eaf3120c869a77049c84cb232991645"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_WRITE_MODE_TRUNCATE</span></span></span><a class="headerlink" href="#c.OTSLIB_WRITE_MODE_TRUNCATE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Truncate Write Mode. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413otslib_createPv6size_tP6uuid_t">
+<span id="_CPPv313otslib_createPv6size_tP6uuid_t"></span><span id="_CPPv213otslib_createPv6size_tP6uuid_t"></span><span id="otslib_create__voidP.s.uuid_tP"></span><span class="target" id="group__otslib__action_1gab1e1969c74a4fc608adf69a62530687d"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_create</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">size</span></span>, <span class="n"><span class="pre">uuid_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">type</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413otslib_createPv6size_tP6uuid_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create Object. </p>
+<p>Create an object with allocated size of <code class="docutils literal notranslate"><span class="pre">size</span></code> and type of <code class="docutils literal notranslate"><span class="pre">type</span></code>. The type is a generic bluetooth UUID type that supports 16-bit, 32-bit, and 128-bit UUIDs. However, only 16-bit and 128-bit UUIDs are valid for an OTS object type.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Further to the above limitation, currently only 16-byte UUID types are supported.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adapter</strong> – otslib adapter </p></li>
+<li><p><strong>size</strong> – object size to create </p></li>
+<li><p><strong>type</strong> – object type to create </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>-EINVAL</strong> – if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> or <code class="docutils literal notranslate"><span class="pre">type</span></code> are NULL if the server does not support the objet type </p></li>
+<li><p><strong>-ENOTSUP</strong> – if type is not a 16-bit UUID if the server does not support object creation </p></li>
+<li><p><strong>-ENOSPC</strong> – if the server did not have sufficient resources </p></li>
+<li><p><strong>0</strong> – when successful </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>other negative values for other errors </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413otslib_deletePv">
+<span id="_CPPv313otslib_deletePv"></span><span id="_CPPv213otslib_deletePv"></span><span id="otslib_delete__voidP"></span><span class="target" id="group__otslib__action_1ga9a6e4a6d69b0771c1dbc3d4dc3d9c648"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_delete</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413otslib_deletePv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Delete Object. </p>
+<p>Delete the currently selected object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>adapter</strong> – otslib adapter </p>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>-EINVAL</strong> – if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> is NULL </p></li>
+<li><p><strong>-ENOTSUP</strong> – if the server does not support delete </p></li>
+<li><p><strong>-ENOENT</strong> – if no object is currently selected </p></li>
+<li><p><strong>-EPERM</strong> – if the current object does not permit deletion </p></li>
+<li><p><strong>-EBUSY</strong> – if the object is currently busy </p></li>
+<li><p><strong>0</strong> – when successful </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>other negative values for other errors </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411otslib_readPv5off_t6size_tPPv">
+<span id="_CPPv311otslib_readPv5off_t6size_tPPv"></span><span id="_CPPv211otslib_readPv5off_t6size_tPPv"></span><span id="otslib_read__voidP.off_t.s.voidPP"></span><span class="target" id="group__otslib__action_1ga9d56799a71905bf7617137174d3c581d"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_read</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span>, <span class="n"><span class="pre">off_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">offset</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">length</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411otslib_readPv5off_t6size_tPPv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Read Object. </p>
+<p>Read <code class="docutils literal notranslate"><span class="pre">length</span></code> at <code class="docutils literal notranslate"><span class="pre">offset</span></code> from the currently selected object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adapter</strong> – otslib adapter </p></li>
+<li><p><strong>offset</strong> – byte offset to read from </p></li>
+<li><p><strong>length</strong> – number of bytes to read </p></li>
+<li><p><strong>buffer</strong> – <strong>[out]</strong> pointer to the buffer containing the read data. it is the responsibility of the caller to free this buffer using free(). </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>-EINVAL</strong> – if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> or <code class="docutils literal notranslate"><span class="pre">buffer</span></code> are NULL </p></li>
+<li><p><strong>-ENOMEM</strong> – if buffer memory could not be allocated </p></li>
+<li><p><strong>-ENOTSUP</strong> – if the server does not support read </p></li>
+<li><p><strong>-ENOENT</strong> – if no object is currently selected </p></li>
+<li><p><strong>-EPERM</strong> – if the current object does not permit read </p></li>
+<li><p><strong>-EBADR</strong> – if the offset and length result in an invalid read operation </p></li>
+<li><p><strong>-EBUSY</strong> – if the object is currently busy </p></li>
+<li><p><strong>-EIO</strong> – if the read was unexpectedly terminated </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>number of bytes read on success </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>other negative values for other errors </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412otslib_writePv5off_t6size_thPv">
+<span id="_CPPv312otslib_writePv5off_t6size_thPv"></span><span id="_CPPv212otslib_writePv5off_t6size_thPv"></span><span id="otslib_write__voidP.off_t.s.unsigned-c.voidP"></span><span class="target" id="group__otslib__action_1ga0568d0764c8348ad65d5cc51399736b9"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_write</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span>, <span class="n"><span class="pre">off_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">offset</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">length</span></span>, <span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">mode</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412otslib_writePv5off_t6size_thPv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Write Object. </p>
+<p>Write <code class="docutils literal notranslate"><span class="pre">length</span></code> at <code class="docutils literal notranslate"><span class="pre">offset</span></code> to the currently selected object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adapter</strong> – otslib_adapter </p></li>
+<li><p><strong>offset</strong> – byte offset to write to </p></li>
+<li><p><strong>length</strong> – number of bytes to write </p></li>
+<li><p><strong>mode</strong> – write mode bitmask constructed from <code class="docutils literal notranslate"><span class="pre">OTSLIB_WRITE_MODE_*</span></code> defines </p></li>
+<li><p><strong>buffer</strong> – <strong>[out]</strong> pointer to the buffer containing the write data. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>-EINVAL</strong> – if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> or <code class="docutils literal notranslate"><span class="pre">buffer</span></code> are NULL </p></li>
+<li><p><strong>-ENOTSUP</strong> – if the server does not support write </p></li>
+<li><p><strong>-ENOENT</strong> – if no object is currently selected </p></li>
+<li><p><strong>-EPERM</strong> – if the current object does not permit write if the patching or truncation was attempted but they are not permitted </p></li>
+<li><p><strong>-EBADR</strong> – if the offset and length result in an invalid write operation </p></li>
+<li><p><strong>-EBUSY</strong> – if the object is currently busy </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>number of bytes read on success </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>other negative values for other errors </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="list">
+<h2>List<a class="headerlink" href="#list" title="Permalink to this headline"></a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__otslib__list"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">otslib_list</span></span></dt>
+<dd><p>List. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412otslib_firstPv">
+<span id="_CPPv312otslib_firstPv"></span><span id="_CPPv212otslib_firstPv"></span><span id="otslib_first__voidP"></span><span class="target" id="group__otslib__list_1ga661ef8a34b6d9b008fdd0b5745ff2436"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_first</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412otslib_firstPv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Select the first object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>adapter</strong> – an otslib adapter </p>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>-EINVAL</strong> – if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> is invalid </p></li>
+<li><p><strong>0</strong> – when successful </p></li>
+<li><p><strong>other</strong> – negative values for other errors </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411otslib_lastPv">
+<span id="_CPPv311otslib_lastPv"></span><span id="_CPPv211otslib_lastPv"></span><span id="otslib_last__voidP"></span><span class="target" id="group__otslib__list_1ga374ecb58b3677805eb0cfe56bcb4e208"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_last</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411otslib_lastPv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Select the last object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>adapter</strong> – an otslib adapter </p>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>-EINVAL</strong> – if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> is invalid </p></li>
+<li><p><strong>0</strong> – when successful </p></li>
+<li><p><strong>other</strong> – negative values for other errors </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415otslib_previousPv">
+<span id="_CPPv315otslib_previousPv"></span><span id="_CPPv215otslib_previousPv"></span><span id="otslib_previous__voidP"></span><span class="target" id="group__otslib__list_1ga499bd19141f12693008663953954474b"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_previous</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415otslib_previousPv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Select the previous object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>adapter</strong> – an otslib adapter </p>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>-EINVAL</strong> – if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> is invalid </p></li>
+<li><p><strong>0</strong> – when successful </p></li>
+<li><p><strong>other</strong> – negative values for other errors </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411otslib_nextPv">
+<span id="_CPPv311otslib_nextPv"></span><span id="_CPPv211otslib_nextPv"></span><span id="otslib_next__voidP"></span><span class="target" id="group__otslib__list_1gaf5a194bd6f17eac4772063c9fda5b9ea"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_next</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411otslib_nextPv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Select the next object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>adapter</strong> – an otslib adapter </p>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>-EINVAL</strong> – if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> is invalid </p></li>
+<li><p><strong>0</strong> – when successful </p></li>
+<li><p><strong>other</strong> – negative values for other errors </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411otslib_gotoPv8uint64_t">
+<span id="_CPPv311otslib_gotoPv8uint64_t"></span><span id="_CPPv211otslib_gotoPv8uint64_t"></span><span id="otslib_goto__voidP.uint64_t"></span><span class="target" id="group__otslib__list_1gaaf05077acfed4618bd36de0e4e2f13db"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_goto</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">id</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411otslib_gotoPv8uint64_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Select the object with specified ID. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adapter</strong> – an otslib adapter </p></li>
+<li><p><strong>id</strong> – object ID to select </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>-EINVAL</strong> – if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> or <code class="docutils literal notranslate"><span class="pre">id</span></code> is invalid </p></li>
+<li><p><strong>0</strong> – when successful </p></li>
+<li><p><strong>other</strong> – negative values for other errors </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="metadata">
+<h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline"></a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__otslib__metadata"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">otslib_metadata</span></span></dt>
+<dd><p>Metadata. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_OBJECT_PROPERTY_DELETE">
+<span class="target" id="group__otslib__metadata_1gaf4098d94826a750e125439f3ebb1162d"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_OBJECT_PROPERTY_DELETE</span></span></span><a class="headerlink" href="#c.OTSLIB_OBJECT_PROPERTY_DELETE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Object Property Delete. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_OBJECT_PROPERTY_EXECUTE">
+<span class="target" id="group__otslib__metadata_1ga0d12037d6b070e5517a3280ad7610b61"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_OBJECT_PROPERTY_EXECUTE</span></span></span><a class="headerlink" href="#c.OTSLIB_OBJECT_PROPERTY_EXECUTE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Object Property Execute. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_OBJECT_PROPERTY_READ">
+<span class="target" id="group__otslib__metadata_1ga52954a929d8d63615fa93794d57cba00"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_OBJECT_PROPERTY_READ</span></span></span><a class="headerlink" href="#c.OTSLIB_OBJECT_PROPERTY_READ" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Object Property Read. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_OBJECT_PROPERTY_WRITE">
+<span class="target" id="group__otslib__metadata_1gac3830a8b34f40ce6833b6239f1665b08"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_OBJECT_PROPERTY_WRITE</span></span></span><a class="headerlink" href="#c.OTSLIB_OBJECT_PROPERTY_WRITE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Object Property Write. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_OBJECT_PROPERTY_APPEND">
+<span class="target" id="group__otslib__metadata_1gaf32cad9e645fa70f737a75bfbb87ee15"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_OBJECT_PROPERTY_APPEND</span></span></span><a class="headerlink" href="#c.OTSLIB_OBJECT_PROPERTY_APPEND" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Object Property Append. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_OBJECT_PROPERTY_TRUNCATE">
+<span class="target" id="group__otslib__metadata_1gabcb1818b32e7808181efda69929fe7ec"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_OBJECT_PROPERTY_TRUNCATE</span></span></span><a class="headerlink" href="#c.OTSLIB_OBJECT_PROPERTY_TRUNCATE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Object Property Truncate. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_OBJECT_PROPERTY_PATCH">
+<span class="target" id="group__otslib__metadata_1gaa19b5ee6dfbef40bbd22cd06c3d08bbf"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_OBJECT_PROPERTY_PATCH</span></span></span><a class="headerlink" href="#c.OTSLIB_OBJECT_PROPERTY_PATCH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Object Property Patch. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_OBJECT_PROPERTY_MARK">
+<span class="target" id="group__otslib__metadata_1gadc388d14412d3846441b1b4d704cabe8"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_OBJECT_PROPERTY_MARK</span></span></span><a class="headerlink" href="#c.OTSLIB_OBJECT_PROPERTY_MARK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Object Property Mark. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415otslib_get_namePvPPc">
+<span id="_CPPv315otslib_get_namePvPPc"></span><span id="_CPPv215otslib_get_namePvPPc"></span><span id="otslib_get_name__voidP.cPP"></span><span class="target" id="group__otslib__metadata_1ga653cd572369046267cb192554d41538e"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_get_name</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415otslib_get_namePvPPc" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get Object Name. </p>
+<p>The object name returned is dynamically allocated, it is the caller’s responsibility to free the memory when no longer needed to prevent a resource leak.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adapter</strong> – otslib adapter </p></li>
+<li><p><strong>name</strong> – <strong>[out]</strong> object’s name </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>-EINVAL if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> or <code class="docutils literal notranslate"><span class="pre">name</span></code> is NULL </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>-ENOMEM if could not allocate memory for <code class="docutils literal notranslate"><span class="pre">name</span></code> </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 when successful </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>other negative values for other errors </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415otslib_set_namePvPKc">
+<span id="_CPPv315otslib_set_namePvPKc"></span><span id="_CPPv215otslib_set_namePvPKc"></span><span id="otslib_set_name__voidP.cCP"></span><span class="target" id="group__otslib__metadata_1ga2240bf16e76625bfcecbd35f5086024d"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_set_name</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415otslib_set_namePvPKc" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set Object Name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adapter</strong> – otslib adapter </p></li>
+<li><p><strong>name</strong> – object name to set </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>-EINVAL if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> or <code class="docutils literal notranslate"><span class="pre">name</span></code> is NULL, or name length is too long </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>0 when successful </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>other negative values for other errors </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411otslib_typePvP6uuid_t">
+<span id="_CPPv311otslib_typePvP6uuid_t"></span><span id="_CPPv211otslib_typePvP6uuid_t"></span><span id="otslib_type__voidP.uuid_tP"></span><span class="target" id="group__otslib__metadata_1ga3a0cdbbc2c273d36dd8b170bd477495e"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_type</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span>, <span class="n"><span class="pre">uuid_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">uuid</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411otslib_typePvP6uuid_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get Object Type. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adapter</strong> – otslib adapter </p></li>
+<li><p><strong>uuid</strong> – <strong>[out]</strong> type uuid </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>-EINVAL if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> or <code class="docutils literal notranslate"><span class="pre">uuid</span></code> is NULL </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>0 when successful </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>other negative values for other errors </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411otslib_sizePvP6size_tP6size_t">
+<span id="_CPPv311otslib_sizePvP6size_tP6size_t"></span><span id="_CPPv211otslib_sizePvP6size_tP6size_t"></span><span id="otslib_size__voidP.sP.sP"></span><span class="target" id="group__otslib__metadata_1ga6e5a06c60d805eb3c0ec29ba01286cd8"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_size</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">current</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">allocated</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411otslib_sizePvP6size_tP6size_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get Object Size. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adapter</strong> – otslib adapter </p></li>
+<li><p><strong>current</strong> – <strong>[out]</strong> object’s current size </p></li>
+<li><p><strong>allocated</strong> – <strong>[out]</strong> object’s allocated size </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>-EINVAL if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> is NULL or both <code class="docutils literal notranslate"><span class="pre">current</span></code> and <code class="docutils literal notranslate"><span class="pre">allocated</span></code> are NULL </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>-EIO if object size could not be read </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 when successful </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>other negative values for other errors </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv49otslib_idPvPy">
+<span id="_CPPv39otslib_idPvPy"></span><span id="_CPPv29otslib_idPvPy"></span><span id="otslib_id__voidP.unsigned-l-lP"></span><span class="target" id="group__otslib__metadata_1ga88fa6fc5cf4540d0602e766c8d18ee03"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_id</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span>, <span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">id</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49otslib_idPvPy" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get Object ID. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adapter</strong> – otslib adapter </p></li>
+<li><p><strong>id</strong> – <strong>[out]</strong> object’s ID </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>-EINVAL if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> or <code class="docutils literal notranslate"><span class="pre">id</span></code> is NULL </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>-EIO if object ID could not be read </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 when successful </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>other negative values for other errors </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417otslib_propertiesPvPm">
+<span id="_CPPv317otslib_propertiesPvPm"></span><span id="_CPPv217otslib_propertiesPvPm"></span><span id="otslib_properties__voidP.unsigned-lP"></span><span class="target" id="group__otslib__metadata_1ga0252f911bfa59f05008843e1bb90cfb9"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_properties</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span>, <span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">properties</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417otslib_propertiesPvPm" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get Object Properties. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adapter</strong> – otslib adapter </p></li>
+<li><p><strong>properties</strong> – <strong>[out]</strong> <code class="docutils literal notranslate"><span class="pre">OTSLIB_OBJECT_PROPERTY_</span></code> bitmask of object’s properties </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>-EINVAL if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> or <code class="docutils literal notranslate"><span class="pre">properties</span></code> is NULL </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>-EIO if object properties could not be read </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 when successful </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>other negative values for other errors </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="directory-listing">
+<h2>Directory Listing<a class="headerlink" href="#directory-listing" title="Permalink to this headline"></a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__otslib__directory"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">otslib_directory</span></span></dt>
+<dd><p>Directory. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_OBJECT_ID_DIRECTORY_LISTING">
+<span class="target" id="group__otslib__directory_1ga023ddff78e5933ac874c21780b897c2d"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_OBJECT_ID_DIRECTORY_LISTING</span></span></span><a class="headerlink" href="#c.OTSLIB_OBJECT_ID_DIRECTORY_LISTING" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Directory Listing Object ID. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_DIRECTORY_FLAG_OBJ_TYPE_UUID128">
+<span class="target" id="group__otslib__directory_1ga18f0a48c438f443a2ae02e12cb756517"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_DIRECTORY_FLAG_OBJ_TYPE_UUID128</span></span></span><a class="headerlink" href="#c.OTSLIB_DIRECTORY_FLAG_OBJ_TYPE_UUID128" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Directory Record UUID128 Type Flag. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_DIRECTORY_FLAG_CURRENT_SIZE">
+<span class="target" id="group__otslib__directory_1ga6cf1b743260374689f2a0f7fc020a06f"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_DIRECTORY_FLAG_CURRENT_SIZE</span></span></span><a class="headerlink" href="#c.OTSLIB_DIRECTORY_FLAG_CURRENT_SIZE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Directory Record Current Size Present Flag. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_DIRECTORY_FLAG_ALLOCATED_SIZE">
+<span class="target" id="group__otslib__directory_1ga6e93c49ca7c1231a6fc781c5d6360680"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_DIRECTORY_FLAG_ALLOCATED_SIZE</span></span></span><a class="headerlink" href="#c.OTSLIB_DIRECTORY_FLAG_ALLOCATED_SIZE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Directory Record Allocated Size Present Flag. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_DIRECTORY_FLAG_FIRST_CREATED">
+<span class="target" id="group__otslib__directory_1gac773b6a84ce16c65b0fc9bdbc002ec38"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_DIRECTORY_FLAG_FIRST_CREATED</span></span></span><a class="headerlink" href="#c.OTSLIB_DIRECTORY_FLAG_FIRST_CREATED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Directory Record First Created Present Flag. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_DIRECTORY_FLAG_LAST_MODIFIED">
+<span class="target" id="group__otslib__directory_1gae750bf93ce27262a5e93fa9f5d27c566"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_DIRECTORY_FLAG_LAST_MODIFIED</span></span></span><a class="headerlink" href="#c.OTSLIB_DIRECTORY_FLAG_LAST_MODIFIED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Directory Record Last Modified Present Flag. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_DIRECTORY_FLAG_PROPERTIES">
+<span class="target" id="group__otslib__directory_1ga988d963eb01bae16617a06d6966eccaa"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_DIRECTORY_FLAG_PROPERTIES</span></span></span><a class="headerlink" href="#c.OTSLIB_DIRECTORY_FLAG_PROPERTIES" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Directory Record Properties Present Flag. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.OTSLIB_DIRECTORY_FLAG_EXTENDED">
+<span class="target" id="group__otslib__directory_1gaa49a3aebfe2a324761abef40f58a090d"></span><span class="sig-name descname"><span class="n"><span class="pre">OTSLIB_DIRECTORY_FLAG_EXTENDED</span></span></span><a class="headerlink" href="#c.OTSLIB_DIRECTORY_FLAG_EXTENDED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Directory Record Extended Fields Present Flag. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421otslib_directory_readPvPPv">
+<span id="_CPPv321otslib_directory_readPvPPv"></span><span id="_CPPv221otslib_directory_readPvPPv"></span><span id="otslib_directory_read__voidP.voidPP"></span><span class="target" id="group__otslib__directory_1ga848daa076208f51be03c69ca796ada43"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_directory_read</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">adapter</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421otslib_directory_readPvPPv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Read Directory Listing Object. </p>
+<p>Read the Directory Listing Object and return the contents in <code class="docutils literal notranslate"><span class="pre">buffer</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adapter</strong> – otslib adapter </p></li>
+<li><p><strong>buffer</strong> – <strong>[out]</strong> pointer to the buffer containing the read data. it is the responsibility of the caller to free this buffer using free(). </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>-EINVAL</strong> – if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> or <code class="docutils literal notranslate"><span class="pre">buffer</span></code> are NULL </p></li>
+<li><p><strong>other</strong> – negative values for other errors </p></li>
+<li><p><strong>size</strong> – of the directory listing object in <code class="docutils literal notranslate"><span class="pre">buffer</span></code> on success </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv425otslib_directory_for_eachPv6size_tPvPFiPK22otslib_object_metadataPvE">
+<span id="_CPPv325otslib_directory_for_eachPv6size_tPvPFiPK22otslib_object_metadataPvE"></span><span id="_CPPv225otslib_directory_for_eachPv6size_tPvPFiPK22otslib_object_metadataPvE"></span><span class="target" id="group__otslib__directory_1ga39a2ef54f889db1f6ff88852bb250246"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">otslib_directory_for_each</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">length</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">user_data</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">callback</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv422otslib_object_metadata" title="otslib_object_metadata"><span class="n"><span class="pre">otslib_object_metadata</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">user_data</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425otslib_directory_for_eachPv6size_tPvPFiPK22otslib_object_metadataPvE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Iterate Over Directory Listing Entries. </p>
+<p>Iterate over the Directory Listing Entries and call the user provided callback for each entry. Iteration is stopped if the user provided callback returns a value other than 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer</strong> – the entire Directory Listing Object buffer read by <a class="reference internal" href="#group__otslib__directory_1ga848daa076208f51be03c69ca796ada43"><span class="std std-ref">otslib_directory_read</span></a> </p></li>
+<li><p><strong>length</strong> – the size of the Directory Listing Object in the <code class="docutils literal notranslate"><span class="pre">buffer</span></code> as returned by <a class="reference internal" href="#group__otslib__directory_1ga848daa076208f51be03c69ca796ada43"><span class="std std-ref">otslib_directory_read</span></a> </p></li>
+<li><p><strong>user_data</strong> – arbitrary user data to be passed to the <code class="docutils literal notranslate"><span class="pre">callback</span></code> </p></li>
+<li><p><strong>callback</strong> – user callback to be called for each entry </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><p><strong>-EINVAL</strong> – if <code class="docutils literal notranslate"><span class="pre">adapter</span></code> or <code class="docutils literal notranslate"><span class="pre">buffer</span></code> are NULL </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>other negative values for other errors </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to otslib’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Abe Kohandel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
