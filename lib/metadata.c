@@ -150,6 +150,9 @@ int otslib_size(void *adapter, size_t *current, size_t *allocated)
 	if (adpt == NULL)
 		return -EINVAL;
 
+	if (current == NULL && allocated == NULL)
+		return -EINVAL;
+
 	gattlib_string_to_uuid(OBJECT_SIZE_UUID, strlen(OBJECT_SIZE_UUID), &uuid);
 
 	rc = gattlib_read_char_by_uuid(adpt->connection, &uuid, &buffer, &size);
