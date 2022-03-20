@@ -107,7 +107,7 @@ int otslib_type(void *adapter, uuid_t *uuid)
 	size_t size;
 	int rc = 0;
 
-	if (adpt == NULL)
+	if (adpt == NULL || uuid == NULL)
 		return -EINVAL;
 
 	gattlib_string_to_uuid(OBJECT_TYPE_UUID, strlen(OBJECT_TYPE_UUID), &u);
@@ -120,22 +120,20 @@ int otslib_type(void *adapter, uuid_t *uuid)
 		return -rc;
 	}
 
-	if (uuid) {
-		switch (size) {
-		case OBJECT_TYPE_UUID16_SIZE:
-			uuid->type = SDP_UUID16;
-			uuid->value.uuid16 = bt_get_le16(buffer);
-			LOG(LOG_DEBUG, "Read object type: 0x%04x\n", uuid->value.uuid16);
-			break;
-		case OBJECT_TYPE_UUID128_SIZE:
-			LOG(LOG_ERR, "Unexpected object type size of %zu\n", size);
-			rc = -ENOTSUP;
-			break;
-		default:
-			LOG(LOG_ERR, "Unexpected object type size of %zu\n", size);
-			rc = -EIO;
-			break;
-		}
+	switch (size) {
+	case OBJECT_TYPE_UUID16_SIZE:
+		uuid->type = SDP_UUID16;
+		uuid->value.uuid16 = bt_get_le16(buffer);
+		LOG(LOG_DEBUG, "Read object type: 0x%04x\n", uuid->value.uuid16);
+		break;
+	case OBJECT_TYPE_UUID128_SIZE:
+		LOG(LOG_ERR, "Unexpected object type size of %zu\n", size);
+		rc = -ENOTSUP;
+		break;
+	default:
+		LOG(LOG_ERR, "Unexpected object type size of %zu\n", size);
+		rc = -EIO;
+		break;
 	}
 
 	free(buffer);
