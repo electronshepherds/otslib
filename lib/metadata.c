@@ -30,7 +30,7 @@ int otslib_get_name(void *adapter, char **name)
 	size_t size;
 	int rc = 0;
 
-	if (adpt == NULL)
+	if (adpt == NULL || name == NULL)
 		return -EINVAL;
 
 	gattlib_string_to_uuid(OBJECT_NAME_UUID, strlen(OBJECT_NAME_UUID), &uuid);
@@ -50,12 +50,16 @@ int otslib_get_name(void *adapter, char **name)
 		goto free_memory;
 	}
 
-	if (name) {
-		*name = calloc(1, size + 1);
-		memcpy(*name, buffer, size);
-		(*name)[size] = '\0';
-		LOG(LOG_DEBUG, "Read nbject name: %s\n", *name);
+	*name = calloc(1, size + 1);
+	if (*name == NULL) {
+		rc = -ENOMEM;
+		LOG(LOG_ERR, "Could not allocate %zu for object name\n", size);
+		goto free_memory;
 	}
+
+	memcpy(*name, buffer, size);
+	(*name)[size] = '\0';
+	LOG(LOG_DEBUG, "Read object name: %s\n", *name);
 
 free_memory:
 	free(buffer);
