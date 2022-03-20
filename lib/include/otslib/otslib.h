@@ -65,16 +65,32 @@ extern "C" {
 /** @brief List Feature Clear Marking */
 #define OTSLIB_LIST_FEATURE_CLEAR_MARKING (1UL << 4)
 
+/** @brief Object Metadata */
 struct otslib_object_metadata {
+	/** @brief Object Name */
 	const char *	name;
+
+	/** @brief Object Type UUID */
 	uuid_t		type;
+
+	/** @brief Current Object Size
+	 *
+	 * If current size is not available the value will be -1
+	 */
 	ssize_t		current_size;
+
+	/** @brief Allocated Object Size
+	 *
+	 * If allocated size is not available the value will be -1
+	 */
 	ssize_t		allocated_size;
+
+	/** @brief Object ID */
 	uint64_t	id;
+
+	/** @brief Object Properties */
 	uint32_t	properties;
 };
-
-#define OTSLIB_OBJECT_ID_DIRECTORY_LISTING 0x000000000000
 
 /**
  * @brief Open otslib Adapter

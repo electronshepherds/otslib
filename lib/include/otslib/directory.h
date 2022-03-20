@@ -16,12 +16,28 @@
 extern "C" {
 #endif
 
+/** @brief Directory Listing Object ID */
+#define OTSLIB_OBJECT_ID_DIRECTORY_LISTING 0x000000000000
+
+/** @brief Directory Record UUID128 Type Flag */
 #define OTSLIB_DIRECTORY_FLAG_OBJ_TYPE_UUID128 (1UL << 0)
+
+/** @brief Directory Record Current Size Present Flag */
 #define OTSLIB_DIRECTORY_FLAG_CURRENT_SIZE (1UL << 1)
+
+/** @brief Directory Record Allocated Size Present Flag */
 #define OTSLIB_DIRECTORY_FLAG_ALLOCATED_SIZE (1UL << 2)
+
+/** @brief Directory Record First Created Present Flag */
 #define OTSLIB_DIRECTORY_FLAG_FIRST_CREATED (1UL << 3)
+
+/** @brief Directory Record Last Modified Present Flag */
 #define OTSLIB_DIRECTORY_FLAG_LAST_MODIFIED (1UL << 4)
+
+/** @brief Directory Record Properties Present Flag */
 #define OTSLIB_DIRECTORY_FLAG_PROPERTIES (1UL << 5)
+
+/** @brief Directory Record Extended Fields Present Flag */
 #define OTSLIB_DIRECTORY_FLAG_EXTENDED (1UL << 7)
 
 /**
