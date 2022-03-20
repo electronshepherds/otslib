@@ -233,7 +233,7 @@ int otslib_properties(void *adapter, unsigned long *properties)
 	size_t size;
 	int rc = 0;
 
-	if (adpt == NULL)
+	if (adpt == NULL || properties == NULL)
 		return -EINVAL;
 
 	gattlib_string_to_uuid(OBJECT_PROP_UUID, strlen(OBJECT_PROP_UUID), &uuid);
@@ -253,10 +253,8 @@ int otslib_properties(void *adapter, unsigned long *properties)
 		goto free_memory;
 	}
 
-	if (properties) {
-		*properties = bt_get_le32(buffer);
-		LOG(LOG_DEBUG, "Read object properties: 0x%08lx\n", *properties);
-	}
+	*properties = bt_get_le32(buffer);
+	LOG(LOG_DEBUG, "Read object properties: 0x%08lx\n", *properties);
 
 free_memory:
 	free(buffer);
