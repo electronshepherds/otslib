@@ -62,4 +62,5 @@ declare_example(
 declare_example(
 	directory
 	directory.c
+	hexdump.c
 )

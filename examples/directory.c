@@ -6,6 +6,7 @@
 #include <stdlib.h>
 
 #include "common.h"
+#include "hexdump.h"
 
 static const char *address;
 static size_t timeout;
@@ -55,7 +56,12 @@ int main(int argc, char *argv[])
 		goto exit;
 	}
 
-	otslib_directory_for_each(buffer, rc, NULL, directory_callback);
+	size_t len = rc;
+	rc = otslib_directory_for_each(buffer, len, NULL, directory_callback);
+	if (rc < 0) {
+		fprintf(stderr, "Error during entry read.\n");
+		hexdump(buffer, len);
+	}
 	free(buffer);
 
 	rc = 0;
